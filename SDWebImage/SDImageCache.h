@@ -137,4 +137,7 @@
  */
 - (int)getMemoryCount;
 
+- (NSString *)cachePathForKey:(NSString *)key;
+
+
 @end

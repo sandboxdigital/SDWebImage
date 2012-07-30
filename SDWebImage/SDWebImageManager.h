@@ -148,4 +148,7 @@ typedef NSString *(^CacheKeyFilter)(NSURL *url);
  */
 - (void)cancelForDelegate:(id<SDWebImageManagerDelegate>)delegate;
 
+
+- (NSData*)dataForKey:(NSURL*)url;
+
 @end

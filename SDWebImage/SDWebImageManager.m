@@ -210,6 +210,21 @@ static SDWebImageManager *instance;
     }
 }
 
+- (NSData*)dataForKey:(NSURL*)url
+{
+    if ([url isKindOfClass:NSString.class])
+    {
+        url = [NSURL URLWithString:(NSString *)url];
+    }
+    
+    NSString *key = [self cacheKeyForURL:url];
+    NSString *path = [[SDImageCache sharedImageCache] cachePathForKey:key];
+    
+    return [NSData dataWithContentsOfFile:path];
+}
+
+
+
 #pragma mark SDImageCacheDelegate
 
 - (NSUInteger)indexOfDelegate:(id<SDWebImageManagerDelegate>)delegate waitingForURL:(NSURL *)url
